@@ -1,0 +1,25 @@
+﻿/* Responsive adjustments */
+@media (max-width: 600px) {
+    main {
+        max-width: 100%;
+        padding: 0.5rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav li {
+        margin: 0.5rem 0;
+    }
+
+    header, footer[role="contentinfo"] {
+        padding: 0.5rem 0;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+        padding: 1rem;
+    }
+}
