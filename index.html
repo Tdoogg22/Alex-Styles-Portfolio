@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alex Styles Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<!-- Modal for project details -->
+<div id="projectModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+        <span class="close-modal" tabindex="0" aria-label="Close project details">&times;</span>
+        <h2 id="modalTitle">Project Title</h2>
+        <p id="modalDescription">Detailed project description goes here.</p>
+    </div>
+</div>
+<script>document.querySelectorAll('.project-thumb').forEach(function(thumb) {
+    thumb.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('modalTitle').textContent = this.querySelector('h3').textContent;
+        document.getElementById('modalDescription').textContent = "Detailed description for " + this.querySelector('h3').textContent + " goes here.";
+        document.getElementById('projectModal').style.display = 'flex';
+    });
+    thumb.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+        }
+    });
+});
+document.querySelector('.close-modal').addEventListener('click', function() {
+    document.getElementById('projectModal').style.display = 'none';
+});
+document.querySelector('.close-modal').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+        document.getElementById('projectModal').style.display = 'none';
+    }
+});
+window.addEventListener('click', function(e) {
+    if (e.target === document.getElementById('projectModal')) {
+        document.getElementById('projectModal').style.display = 'none';
+    }
+});</script>
+
+<body>
+    <header>
+        <h1>Alex Styles</h1>
+        <p>Portfolio Site</p>
+    </header>
+
+    <nav>
+        <a href="#about" class="nav-link" data-tooltip="Learn more about Alex">About Me</a>
+        <a href="#portfolio" class="nav-link" data-tooltip="See Alex's work">Portfolio</a>
+        <a href="#contact" class="nav-link" data-tooltip="Get in touch">Contact</a>
+    </nav>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            <!-- Brief introduction placeholder -->
+            Hi, I'm Alex Styles. I specialize in web development and design, with experience in modern frameworks and creative problem-solving.
+        </p>
+    </section>
+
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <div class="portfolio-grid">
+            <!-- Project thumbnails placeholders -->
+            <a href="#" class="project-thumb">
+                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80" alt="Project 1" style="width:100%;height:auto;">
+                <h3>Project Title 1</h3>
+            </a>
+            <a href="#" class="project-thumb">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Project 2" style="width:100%;height:auto;">
+                <h3>Project Title 2</h3>
+            </a>
+            <a href="#" class="project-thumb">
+                <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80" alt="Video Game Project" style="width:100%;height:auto;">
+                <h3>Project Title 3</h3>
+            </a>
+
+
+            <!-- Add more as needed -->
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <form>
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+</body>
+</html>
